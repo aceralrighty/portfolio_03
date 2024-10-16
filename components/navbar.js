@@ -19,7 +19,7 @@ import ThemeToggleButton from './theme-toggle-button'
 import { IoLogoGithub } from 'react-icons/io5'
 import Head from "next/head";
 const LinkItem = ({href, path, target, children, ...props }) => {
-    const active = path ===href
+    const active = path === href
     const inactiveColor = useColorModeValue("gray.800", "whiteAlpha.900")
     return (
         <Link as={NextLink} href={href} scroll={false} p={2} bg={active ? "grassTeal" : undefined}
@@ -30,11 +30,10 @@ const LinkItem = ({href, path, target, children, ...props }) => {
         </Link>
     )
 }
-const menuLink = forwardRef((props, ref) => (
+const MenuLink = forwardRef((props, ref) => (
     <Link ref={ref} as={NextLink} {...props} />
 ))
 const Navbar = props => {
-    const {path} = props
     return (
         <Box position={"fixed"}
              as={"nav"}
@@ -62,19 +61,19 @@ const Navbar = props => {
                                         variant={"outline"}
                                         aria-label={"Options"}/>
                             <MenuList>
-                                <MenuItem as={menuLink} href="/">
+                                <MenuItem as={MenuLink} href="/">
                                     About
                                 </MenuItem>
-                                <MenuItem as={menuLink} href="/resume">
+                                <MenuItem as={MenuLink} href="/resume">
                                     Resume
                                 </MenuItem>
-                                <MenuItem as={menuLink} href="/hobbies">
+                                <MenuItem as={MenuLink} href="/hobbies">
                                     Hobbies
                                 </MenuItem>
-                                <MenuItem as={menuLink()} href={"/education"}>
+                                <MenuItem as={MenuLink} href={"/education"}>
                                     Education
                                 </MenuItem>
-                                <MenuItem as={menuLink} href="/Contact">
+                                <MenuItem as={MenuLink} href="/Contact">
                                     Contact Me
                                 </MenuItem>
                             </MenuList>

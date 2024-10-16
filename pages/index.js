@@ -1,11 +1,13 @@
 import {Container} from "postcss";
-import {Box, Heading} from "@chakra-ui/react";
+import {Box, Button, Heading, Link, List, ListItem} from "@chakra-ui/react";
 import Image from "next/image";
 import Section from "@/components/section";
 import Paragraph from "@/components/paragraph";
 import {BioSection, BioYear} from "@/components/bio";
+import {IoLogoGithub} from "react-icons/io5";
+import {IoLogoInstagram} from "react-icons/io";
 
-export default function Page() {
+const Home =() => {
     return (
         <Container>
             <Box borderRadius={"lg"} bg={"red"} p={"3"} mb={6} align={"center"}>
@@ -13,7 +15,7 @@ export default function Page() {
             </Box>
             <Box display={{md: 'flex'}}>
                 <Box flexGrow={1}>
-                    <Heading as={h2} variant={page - title}>
+                    <Heading as={"h2"} variant={"page - title"}>
                         Adam Ziv
                     </Heading>
                     <p>Software Engineer</p>
@@ -35,7 +37,7 @@ export default function Page() {
                 </Box>
             </Box>
             <Section delay={0.1}>
-                <Heading as={h3} variant={"section-title"}>
+                <Heading as={"h3"} variant={"section-title"}>
                     Work
                 </Heading>
                 <Paragraph>
@@ -44,7 +46,7 @@ export default function Page() {
             </Section>
 
             <Section delay={0.2}>
-                <Heading as={h3} variant={"section-title"}>
+                <Heading as={"h3"} variant={"section-title"}>
                     Bio
                 </Heading>
                 <BioSection>
@@ -58,10 +60,27 @@ export default function Page() {
 
             </Section>
             <Section delay={0.3}>
-                <Heading as={h3} variant={"section-title"}>
+                <Heading as={"h3"} variant={"section-title"}>
                     On the web
                 </Heading>
+                <List>
+                    <ListItem>
+                        <Link href={"https://github.com/aceralrighty"} target={"_blank"}>
+                            <Button variant={"ghost"} colorScheme={"teal"} leftIcon={<IoLogoGithub/>}>
+                                @aceralrighty
+                            </Button>
+                        </Link>
+                    </ListItem>
+                    <ListItem>
+                        <Link href={"https://www.instagram.com/adam__ziv"} target={"_blank"}>
+                            <Button variant={"ghost"} colorScheme={"teal"} leftIcon={<IoLogoInstagram/>}>
+                                @adam_ziv
+                            </Button>
+                        </Link>
+                    </ListItem>
+                </List>
             </Section>
         </Container>
     );
 }
+export default Home;
